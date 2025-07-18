@@ -114,5 +114,30 @@ The closest reference time for the data from 2010-01-01 (MJD 55197) is
 <img src="efold1.png" width="60%">
 
 
-### 3.3 Phase resolved analysis
+### 3.3 Phase-resolved event selection
+
+```
+% ftcalc infile='crab_g_low_barycen.evt[events]' \
+  outfile=crab_g_low_baryref.evt \
+  column=BARY_REF_TIME \
+  expression='(TIME-(314150402.0+0.011470))' 
+...
+```
+Add PHASE column expressed as 
+$ \mathrm{PHASE} = \nu T + \dot{\nu} T^2/2 $,
+where $T=$ BARY_REF_TIME.
+```
+% ftcalc infile='crab_g_low_baryref.evt[events]' \
+  outfile='crab_g_low_baryref_phase.evt' \
+  column=PHASE \
+  expression='(29.7289425105*(BARY_REF_TIME)+(-371435.80e-15*(BARY_REF_TIME**2)/2))%1'
+...
+
+```
+
+Plot PHASE histogram
+```
+% fv crab_g_low_baryref_phase.evt
+```
+<img src="phasehist.png" width="60%">
 
