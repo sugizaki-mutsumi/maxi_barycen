@@ -80,7 +80,19 @@ Sort events with time and perform barycentric time correction using `barycen`
 ```
 
 #### 3.2 Epoch-folding search and Folded pulse profile
-Get Crab pulsar ephemeris
+Get Crab pulsar ephemeris from the Jodrell Back Observatory data archive
+https://www.jb.man.ac.uk/pulsar/crab/crab2.txt
+
+The closest reference time for the data from 2010-01-01 (MJD 55197) is 
+
+| Date | MJD | t_JPL (s) | $\nu$ (Hz) | $\dot{\nu}$ (e-15 Hz/s) |
+|---|---|---|---|---|
+|15 DEC 19| 55180 | 0.011470 | 29.7289425105| -371435.80|
+
+| $P = 1/\nu$ (s) | $\dot{P} = -\dot{\nu}/\nu^2$ (s/s) |
+|---|---|
+|0.03363725432368840 | 4.202665622939618e-13 |
+
 
 ```
 % efsearch cfile1="crab_g_low_barycen.evt" window="-"\
