@@ -124,7 +124,7 @@ The closest reference time for the data from 2010-01-01 (MJD 55197) is
 ...
 ```
 Add PHASE column expressed as 
-$ \mathrm{PHASE} = \nu T + \dot{\nu} T^2/2 $,
+$` \mathrm{PHASE} = \nu T + \dot{\nu} T^2/2 `$,
 where $T=$ BARY_REF_TIME.
 ```
 % ftcalc infile='crab_g_low_baryref.evt[events]' \
