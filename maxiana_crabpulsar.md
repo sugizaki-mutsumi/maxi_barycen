@@ -6,8 +6,11 @@
 
 
 ## Test environment 
-- Heasoft Ver.6.34
-- 
+- Heasoft Ver.6.34  
+    - [How to fix error in Heasoft Ver.6.35 (in my Mac, Apple M3 Sequoia 15.5).](error_in_headas635.md)
+- CALDB
+
+  
 
 ## Step by step procedure
 
@@ -61,11 +64,14 @@ XSPEC12>plot lda del
 
 ### 3. Pulsar timing analysis 
 #### 3.0 Create orbit file
-Merge daily orbit files into a fingle file using a python script [`merge_orbfile.py`](merge_orbfile.py)
+Merge daily orbit files into a single file using a python script [`merge_orbfile.py`](merge_orbfile.py)
 ```
-% merge_orbfile.py
+% ./merge_orbfile.py -o orbit.fits --date_from 2009-12-31 --date_to 2010-01-12
 ...
 ```
+Add a small margin on `date_from` and `date_to`.
+Check `orbit.fits` has been successfully created.
+
 #### 3.1 Barycentric time correction 
 Sort events with time and perform barycentric time correction using `barycen`
 ```

@@ -141,10 +141,11 @@ if __name__=="__main__" :
 
     ### run merge
     orbfilelist =  get_orbfilelist(mjd_from, mjd_to, obsdir='obs') 
-    print("Merging orbit files")
-    for fname in orbfilelist: 
-        print(fname)
-    if len(orbfilelist)>0 :
+    if len(orbfilelist)==0 :
+        print("Error: No merging orbit file")
+    else :
+        print("Merging orbit files")
+        for fname in orbfilelist: 
+            print(fname)
         create_orbfile(orbfilelist, outfname)
-    
 
