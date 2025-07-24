@@ -13,6 +13,7 @@
   
 
 ## Step by step procedure
+Using Crab pulsar data
 
 ### 1. Download data 
 ```
@@ -31,7 +32,7 @@ Use `mxproduct` in HEASOFT
 
 #### 2.1 Check Image
 ```
-% ds9 products/crab_g_low.evt
+% ds9 -scale log -zoom 2 -grid on products/crab_g_low.evt
 ... 
 ```
 <img src="ds9.png" width="60%">
