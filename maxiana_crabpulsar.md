@@ -6,9 +6,11 @@
 
 
 ## Test environment 
-- Heasoft Ver.6.34  
-    - [How to fix error in Heasoft Ver.6.35 (in my Mac, Apple M3 Sequoia 15.5).](error_in_headas635.md)
+- Heasoft Ver.6.35(.2)
 - CALDB
+
+There is a bug in HEASoft Ver.6.35 maxi ftools
+- [How to fix error in Heasoft Ver.6.35 (in my Mac, Apple M3 Sequoia 15.5).](error_in_headas635.md)
 
   
 
@@ -94,7 +96,7 @@ The closest reference time for the data from 2010-01-01 (MJD 55197) is
 
 | Date | MJD | t_JPL (s) | $\nu$ (Hz) | $\dot{\nu}$ (e-15 Hz/s) |
 |---|---|---|---|---|
-|15 DEC 19| 55180 | 0.011470 | 29.7289425105| -371435.80|
+|15 DEC 09| 55180 | 0.011470 | 29.7289425105| -371435.80|
 
 | $P = 1/\nu$ (s) | $\dot{P} = -\dot{\nu}/\nu^2$ (s/s) |
 |---|---|
@@ -115,7 +117,7 @@ The closest reference time for the data from 2010-01-01 (MJD 55197) is
 % efold nser=1 cfile1="crab_g_low_barycen.evt" window="-"\
   sepoch="15180 0.011470"\
   dper=3.363725432368840e-02 dpdot=4.202665622939618e-13\
-  nphase=16 nbint=INDEF nintfm=INDEF
+  nphase=64 nbint=INDEF nintfm=INDEF
 ...
 ```
 <img src="efold1.png" width="60%">
@@ -147,4 +149,27 @@ Plot PHASE histogram
 % fv crab_g_low_baryref_phase.evt
 ```
 <img src="phasehist.png" width="60%">
+
+
+## Appendix
+
+### A.1 Folded pulse profile at the Jodrell Bank Pulsar ephemeris data day 
+Use MAXI GSC data from 2010-01-15 to 2010-01-20
+
+Crab Pulsar ephemeris
+| Date | MJD | t_JPL (s) | $\nu$ (Hz) | $\dot{\nu}$ (e-15 Hz/s) |
+|---|---|---|---|---|
+|15 JAN 10| 55211 | 0.000187 | 29.7279476972  | -371401.32|
+
+| $P = 1/\nu$ (s) | $\dot{P} = -\dot{\nu}/\nu^2$ (s/s) |
+|---|---|
+|0.03363837995766480 | 4.202556747674502e-13 |
+
+```
+% efold nser=1 cfile1="crab_g_low_barycen.evt" window="-"\
+  sepoch="15211 0.000187"\
+  dper=3.363837995766480e-02 dpdot=4.202556747674502e-13\
+  nphase=100 nbint=INDEF nintfm=INDEF
+```
+<img src="efold1_mjd55211_55216.png" width="60%">
 
