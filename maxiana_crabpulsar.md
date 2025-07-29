@@ -9,7 +9,7 @@
 - Heasoft Ver.6.35(.2)
 - CALDB
 
-There is a bug in HEASoft Ver.6.35 maxi ftools
+HEASoft Ver.6.35 maxi ftools show errors in Mac (Apple M3 Sequoia 15.5)
 - [How to fix error in Heasoft Ver.6.35 (in my Mac, Apple M3 Sequoia 15.5).](error_in_headas635.md)
 
   
@@ -76,7 +76,11 @@ Add a small margin on `date_from` and `date_to`.
 Check `orbit.fits` has been successfully created.
 
 #### 3.1 Barycentric time correction 
-Sort events with time and perform barycentric time correction using `barycen`
+Sort events with time and perform barycentric time correction using `barycen`.  
+<span style="color:red">
+In very rare cases, the orbit file may not cover the entire good time intervals in the event file.  
+If this happens, re-download the data for one day before / after the analysis period.
+</span>
 ```
 % ftsort products/crab_g_low.evt crab_g_low_tsort.evt TIME
 ...
